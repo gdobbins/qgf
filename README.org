@@ -1,0 +1,145 @@
+#+TITLE: Quantum Go Fish
+
+An implementation of a "quantum" version of the classic game Go Fish written in Scala.
+
+* Running
+  Requires a Java runtime environment and sbt.
+  Clone the repo and then run ~sbt run~
+
+* Rules
+  In Quantum Go Fish, each player starts with their cards in a
+  superposition state. The goal is to be the first player to force
+  themselves to have four of a kind. Each time a player asks another
+  player if they have some instances of a card, it means they must
+  have an instance of that card themselves (since that is a
+  requirement of asking). If a player does not have any instances of
+  that card then it means the other cards being held cannot be an
+  instance of that card. Play proceeds as in Go Fish.
+
+* Example
+  The following is an example play-through of the program:
+
+#+BEGIN_EXAMPLE
+Welcome to Quantum Go Fish!
+Player: Who do you ask? [AI 0, AI 1, AI 2]: 0
+
+Player: What do you ask for? ace
+AI 0 says Go Fish!
+AI 0: Who do you ask? [AI 1, AI 2, Player]: AI 1
+AI 0: What do you ask for? five
+AI 1 says Go Fish!
+AI 1: Who do you ask? [AI 2, Player, AI 0]: AI 0
+AI 1: What do you ask for? two
+AI 0 says Go Fish!
+AI 2: Who do you ask? [Player, AI 0, AI 1]: AI 0
+AI 2: What do you ask for? six
+AI 0 says Go Fish!
+Player: Who do you ask? [AI 0, AI 1, AI 2]: 2
+
+Player: What do you ask for? six
+AI 2 gives 1 sixs
+AI 0: Who do you ask? [AI 1, AI 2, Player]: Player
+AI 0: What do you ask for? eight
+Player says Go Fish!
+AI 1: Who do you ask? [AI 2, Player, AI 0]: AI 0
+AI 1: What do you ask for? two
+AI 0 says Go Fish!
+AI 2: Who do you ask? [Player, AI 0, AI 1]: Player
+AI 2: What do you ask for? seven
+Player says Go Fish!
+Player: Who do you ask? [AI 0, AI 1, AI 2]: 0
+
+Player: What do you ask for? six
+AI 0 says Go Fish!
+AI 0: Who do you ask? [AI 1, AI 2, Player]: AI 1
+AI 0: What do you ask for? jack
+AI 1 says Go Fish!
+AI 1: Who do you ask? [AI 2, Player, AI 0]: AI 2
+AI 1: What do you ask for? king
+AI 2 says Go Fish!
+AI 2: Who do you ask? [Player, AI 0, AI 1]: AI 1
+AI 2: What do you ask for? four
+AI 1 says Go Fish!
+Player: Who do you ask? [AI 0, AI 1, AI 2]: 2
+
+Player: What do you ask for? four
+AI 2 gives 1 fours
+AI 0: Who do you ask? [AI 1, AI 2, Player]: AI 2
+AI 0: What do you ask for? seven
+AI 2 says Go Fish!
+AI 1: Who do you ask? [AI 2, Player, AI 0]: Player
+AI 1: What do you ask for? queen
+Player says Go Fish!
+AI 2: Who do you ask? [Player, AI 0, AI 1]: AI 0
+AI 2: What do you ask for? king
+AI 0 says Go Fish!
+Player: Who do you ask? [AI 0, AI 1, AI 2]: 2
+
+Player: What do you ask for? king
+AI 2 gives 1 kings
+AI 0: Who do you ask? [AI 1, AI 2, Player]: AI 1
+AI 0: What do you ask for? six
+AI 1 says Go Fish!
+AI 1: Who do you ask? [AI 2, Player, AI 0]: Player
+AI 1: What do you ask for? jack
+Player says Go Fish!
+AI 2: Who do you ask? [Player, AI 0, AI 1]: Player
+AI 2: What do you ask for? ace
+Player says Go Fish!
+Player: Who do you ask? [AI 0, AI 1, AI 2]: 0
+
+Player: What do you ask for? six
+AI 0 gives 1 sixs
+AI 0: Who do you ask? [AI 1, AI 2, Player]: AI 2
+AI 0: What do you ask for? king
+AI 2 says Go Fish!
+AI 1: Who do you ask? [AI 2, Player, AI 0]: AI 0
+AI 1: What do you ask for? jack
+AI 0 says Go Fish!
+AI 2: Who do you ask? [Player, AI 0, AI 1]: AI 1
+AI 2: What do you ask for? two
+AI 1 says Go Fish!
+Player: Who do you ask? [AI 0, AI 1, AI 2]: 0
+
+Player: What do you ask for? king
+AI 0 gives 1 kings
+AI 0: Who do you ask? [AI 1, AI 2, Player]: Player
+AI 0: What do you ask for? ace
+Player says Go Fish!
+AI 1: Who do you ask? [AI 2, Player, AI 0]: AI 0
+AI 1: What do you ask for? queen
+AI 0 says Go Fish!
+AI 2: Who do you ask? [Player, AI 0, AI 1]: Player
+AI 2: What do you ask for? eight
+Player says Go Fish!
+Player: Who do you ask? [AI 0, AI 1, AI 2]: 1
+
+Player: What do you ask for? queen
+AI 1 gives 1 queens
+AI 0: Who do you ask? [AI 1, AI 2, Player]: AI 1
+AI 0: What do you ask for? seven
+AI 1 says Go Fish!
+AI 1: Who do you ask? [AI 2, Player, AI 0]: AI 0
+AI 1: What do you ask for? ace
+AI 0 gives 1 aces
+AI 2: Who do you ask? [Player, AI 0, AI 1]: Player
+AI 2: What do you ask for? king
+Player gives 2 kings
+Player: Who do you ask? [AI 0, AI 1, AI 2]: 0
+
+Player: What do you ask for? three
+AI 0 says Go Fish!
+AI 0: Who do you ask? [AI 1, AI 2, Player]: Player
+AI 0: What do you ask for? five
+Player says Go Fish!
+AI 1: Who do you ask? [AI 2, Player, AI 0]: AI 2
+AI 1: What do you ask for? king
+AI 2 gives 3 kings
+AI 1 wins!
+
+#+END_EXAMPLE
+
+* License
+All code is licensed under the GNU GPL version 3
+
+Copyright 2019 Graham Dobbins
